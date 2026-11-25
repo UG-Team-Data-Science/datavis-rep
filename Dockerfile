@@ -23,7 +23,7 @@ RUN apt-get update \
 # Octave add-on packages are installed through apt.txt to keep Binder builds deterministic.
 
 # Install Julia packages for plotting
-RUN julia -e 'using Pkg; Pkg.add([\"Plots\", \"GR\", \"PlotlyJS\", \"Makie\"])'
+RUN julia -e "using Pkg; Pkg.add([\"Plots\", \"GR\", \"PlotlyJS\", \"Makie\"])"
 
 # Switch back to jovyan user
 USER ${NB_USER}
