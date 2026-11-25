@@ -21,8 +21,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* /tmp/apt-packages.txt
 
 # Install Octave packages for plotting
-RUN octave --no-window-system --eval "pkg install -forge plot image io statistics" \
-    && octave --no-window-system --eval "pkg load plot; pkg load image; pkg load io; pkg load statistics"
+RUN octave --no-window-system --eval "pkg install -forge image io statistics" \
+    && octave --no-window-system --eval "pkg load image; pkg load io; pkg load statistics"
 
 # Install Julia packages for plotting
 RUN julia -e 'using Pkg; Pkg.add([\"Plots\", \"GR\", \"PlotlyJS\", \"Makie\"])'
