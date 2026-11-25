@@ -128,7 +128,7 @@ How to run:
 ### **Adding New Packages**
 - **Python**: Add to `requirements.txt`
 - **R**: Add to `install.R`
-- **Octave**: Add to the Octave installation command in `Dockerfile`
+- **Octave**: Add system modules to `apt.txt`
 - **Julia**: Add to the Julia Pkg.add command in `Dockerfile`
 
 Then rebuild the Docker container.

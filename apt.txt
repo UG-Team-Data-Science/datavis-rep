@@ -30,3 +30,6 @@ zlib1g-dev
 # Octave dependencies
 octave
 gnuplot
+octave-image
+octave-io
+octave-statistics

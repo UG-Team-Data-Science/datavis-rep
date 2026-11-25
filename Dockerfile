@@ -3,9 +3,9 @@
 FROM jupyter/datascience-notebook:latest
 
 # Set environment variables
-ENV NB_USER jovyan
-ENV NB_UID 1000
-ENV NB_GID 100
+ENV NB_USER=jovyan
+ENV NB_UID=1000
+ENV NB_GID=100
 
 # Switch to root for installing system dependencies
 USER root
@@ -20,9 +20,7 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/apt-packages.txt
 
-# Install Octave packages for plotting
-RUN octave --no-window-system --eval "pkg install -forge image io statistics" \
-    && octave --no-window-system --eval "pkg load image; pkg load io; pkg load statistics"
+# Octave add-on packages are installed through apt.txt to keep Binder builds deterministic.
 
 # Install Julia packages for plotting
 RUN julia -e 'using Pkg; Pkg.add([\"Plots\", \"GR\", \"PlotlyJS\", \"Makie\"])'
