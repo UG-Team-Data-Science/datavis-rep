@@ -1,0 +1,34 @@
+# System dependencies for data visualization environment
+
+# General build dependencies
+build-essential
+cmake
+
+# Graphics and plotting
+libudunits2-dev
+libpoppler-cpp-dev
+gdal-bin
+libgdal-dev
+libgeos-dev
+libproj-dev
+libmagick++-dev
+libxt6
+libxtst6
+
+# TeX for PDF generation
+texlive-latex-extra
+texlive-pictures
+poppler-utils
+ghostscript
+
+# Fonts and XML
+libxml2-dev
+libcurl4-openssl-dev
+liblzma-dev
+zlib1g-dev
+
+# Octave dependencies
+gnuplot
+
+# Julia dependencies (if building from source)
+wget

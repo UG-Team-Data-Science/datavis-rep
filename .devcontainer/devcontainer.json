@@ -1,0 +1,37 @@
+{
+    "name": "DataVis-Rep",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "datavis-rep",
+    "workspaceFolder": "/workspaces/datavis-rep",
+    "shutdownAction": "stopCompose",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-toolsai.jupyter",
+                "ms-python.python",
+                "ms-r.datascience",
+                "redhat.java",
+                "mtxr.sqltools",
+                "mtxr.sqltools-driver-pg"
+            ],
+            "settings": {
+                "jupyter.jupyterServerType": "local",
+                "jupyter.notebookFileRoot": "/workspaces/datavis-rep"
+            }
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/julia:1": {
+            "version": "1.9.3"
+        }
+    },
+    "portsAttributes": {
+        "8888": {
+            "label": "Jupyter",
+            "onAutoForward": "notify"
+        }
+    },
+    "forwardPorts": [8888],
+    "postCreateCommand": "jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='' --NotebookApp.password='' &",
+    "postStartCommand": "echo 'Jupyter Lab is running at http://localhost:8888'"
+}

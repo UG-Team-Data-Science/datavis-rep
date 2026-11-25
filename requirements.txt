@@ -1,0 +1,28 @@
+# Data Visualization Python Packages
+seaborn
+altair
+plotly
+plotnine
+pandas
+scipy
+scikit-learn
+wordcloud
+cufflinks
+kaleido
+sqlalchemy_utils
+ipywidgets_jsonschema
+ipyfilechooser
+appdirs
+markdown
+
+
+# Jupyter ecosystem
+jupyterlab
+ipykernel
+ipywidgets
+
+# Octave integration (optional)
+oct2py
+
+# Julia integration (optional)
+juliacall

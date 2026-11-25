@@ -221,3 +221,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Docker and Binder
+work/
+docker-compose.override.yml
+*.docker
+
+# Dev container
+.devcontainer/*.log
+.devcontainer/*.tmp
