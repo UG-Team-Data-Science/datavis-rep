@@ -28,7 +28,5 @@ liblzma-dev
 zlib1g-dev
 
 # Octave dependencies
+octave
 gnuplot
-
-# Julia dependencies (if building from source)
-wget

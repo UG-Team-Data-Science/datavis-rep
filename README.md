@@ -10,7 +10,9 @@ This repository provides a pre-configured environment with all necessary package
 
 ### **Option 1: Launch in Binder (MyBinder)**
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UG-Team-Data-Science/datavis-rep?urlpath=lab)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UG-Team-Data-Science/datavis-rep/HEAD)
+
+https://mybinder.org/v2/gh/UG-Team-Data-Science/datavis-rep/HEAD
 
 Click the badge above to launch the environment in **MyBinder**. This will:
 - Build the Docker container using `jupyter/datascience-notebook` as the base
@@ -132,7 +134,7 @@ How to run:
 Then rebuild the Docker container.
 
 ### **Adding System Dependencies**
-Add package names to `apt.txt` and update the `Dockerfile` accordingly.
+Add package names to `apt.txt`, then rebuild the container image.
 
 ---
 
