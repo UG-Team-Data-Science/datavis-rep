@@ -101,8 +101,8 @@ See `install.R` for the full list.
 ### **Julia Packages**
 - Plots.jl - Meta-package for plotting
 - GR.jl - Backend for Plots
-- PlotlyJS.jl - Plotly-based plotting
-- Makie.jl - High-level plotting library
+- PlotlyJS.jl - Plotly-based plotting (optional on constrained builders)
+- Makie.jl - High-level plotting library (optional on constrained builders)
 
 ---
 
