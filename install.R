@@ -23,6 +23,10 @@ install.packages(c("sf", "rgeos", "sp", "maptools", "geofacet",
 install.packages(c("MASS", "e1071", "caret", "GGally", "vcd",
                     "FactoMineR", "tidymodels"))
 
+# Time-series analysis and visualization
+install.packages(c("timeSeries", "zoo", "xts", "forecast", "tsibble",
+                    "fable", "fabletools", "timetk"))
+
 # Utilities
 install.packages(c("knitr", "rmarkdown", "bookdown", "yaml", "jsonlite",
                     "httr", "curl", "xml2", "rvest", "haven",
