@@ -57,27 +57,56 @@ if (length(failed_cran) > 0) {
   ))
 }
 
-# GitHub installs are optional because they are slower and can be flaky on Binder.
-# Enable with INSTALL_GITHUB_PACKAGES=1 when you need them.
-if (identical(Sys.getenv("INSTALL_GITHUB_PACKAGES", "0"), "1")) {
+# GitHub installs are enabled by default because course material depends on them.
+# Set INSTALL_GITHUB_PACKAGES=0 only for quick local builds.
+if (!identical(Sys.getenv("INSTALL_GITHUB_PACKAGES", "1"), "0")) {
   if (!requireNamespace("remotes", quietly = TRUE)) {
     install.packages("remotes")
   }
 
   github_packages <- c(
+    "wilkelab/cowplot",
     "clauswilke/colorblindr",
     "clauswilke/dviz.supp",
-    "wilkelab/cowplot",
-    "wilkelab/ggtext",
-    "DavisVaughan/strapgod"
+    "wilkelab/ungeviz",
+    "clauswilke/ggtextures",
+    "DavisVaughan/strapgod",
+    "ropensci/plotly",
+    "ropensci/jsonvalidate",
+    "thomasp85/transformr"
   )
 
+  install_github_with_retry <- function(pkg, max_attempts = 2L) {
+    for (attempt in seq_len(max_attempts)) {
+      message(sprintf("[github %d/%d] %s", attempt, max_attempts, pkg))
+      ok <- tryCatch({
+        remotes::install_github(pkg, upgrade = "never", dependencies = TRUE)
+        TRUE
+      }, error = function(e) {
+        message(sprintf("[warn] failed to install %s on attempt %d: %s", pkg, attempt, conditionMessage(e)))
+        FALSE
+      })
+      if (ok) {
+        return(TRUE)
+      }
+    }
+    FALSE
+  }
+
+  failed_github <- character(0)
+
   for (pkg in github_packages) {
-    message(sprintf("[github] %s", pkg))
-    tryCatch(
-      remotes::install_github(pkg, upgrade = "never"),
-      error = function(e) message(sprintf("[warn] failed to install %s: %s", pkg, conditionMessage(e)))
-    )
+    if (!install_github_with_retry(pkg)) {
+      failed_github <- c(failed_github, pkg)
+    }
+  }
+
+  if (length(failed_github) > 0) {
+    warning(sprintf(
+      "Some GitHub packages failed to install (%d): %s",
+      length(failed_github),
+      paste(failed_github, collapse = ", ")
+    ))
   }
 } else {
   message("Skipping GitHub R packages (set INSTALL_GITHUB_PACKAGES=1 to enable).")

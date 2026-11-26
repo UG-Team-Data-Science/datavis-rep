@@ -55,7 +55,7 @@ RUN pip install --no-cache-dir --requirement /tmp/requirements.txt \
              fi
 
 # Install R packages
-RUN Rscript /tmp/install.R
+RUN INSTALL_GITHUB_PACKAGES=1 Rscript /tmp/install.R
 
 # Ensure bookdown/knitr stack is present even if optional packages in install.R fail.
 RUN Rscript -e 'options(repos = c(CRAN = "https://cloud.r-project.org")); install.packages(c("knitr", "rmarkdown", "bookdown", "xfun"), dependencies = TRUE)'
