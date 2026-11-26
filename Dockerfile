@@ -38,7 +38,9 @@ RUN pip install --no-cache-dir --requirement /tmp/requirements.txt
 RUN Rscript /tmp/install.R
 
 # Clean up
-RUN rm -f /tmp/requirements.txt /tmp/install.R
+USER root
+RUN rm -f /tmp/requirements.txt /tmp/install.R /tmp/apt.txt
+USER ${NB_USER}
 
 # Set working directory
 WORKDIR /home/${NB_USER}/work
