@@ -20,11 +20,6 @@
             }
         }
     },
-    "features": {
-        "ghcr.io/devcontainers/features/julia:1": {
-            "version": "1.9.3"
-        }
-    },
     "portsAttributes": {
         "8888": {
             "label": "Jupyter",
