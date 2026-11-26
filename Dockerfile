@@ -40,6 +40,10 @@ RUN set -eux; \
 # Install Julia visualization packages.
 RUN julia -e 'using Pkg; Pkg.add(["IJulia", "Plots", "GR", "VegaLite"]); for pkg in ["PlotlyJS", "Makie"]; try; Pkg.add(pkg); catch err; @warn "Skipping optional Julia package" package=pkg exception=err; end; end'
 
+# Ensure Jupyter config is writable for NB_USER during extension setup.
+RUN mkdir -p /home/${NB_USER}/.jupyter \
+    && chown -R ${NB_USER}:users /home/${NB_USER}/.jupyter
+
 # Switch back to jovyan user
 USER ${NB_USER}
 
