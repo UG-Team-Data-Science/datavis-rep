@@ -1,6 +1,6 @@
 # Use jupyter/datascience-notebook as the base image
 # This provides JupyterLab with Python, R, and basic data science packages
-FROM jupyter/datascience-notebook:latest
+FROM quay.io/jupyter/datascience-notebook:2026-07-28
 
 # Set environment variables
 ENV NB_USER=jovyan
