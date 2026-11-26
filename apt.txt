@@ -3,6 +3,10 @@
 # General build dependencies
 build-essential
 cmake
+libssl-dev
+libprotobuf-dev
+protobuf-compiler
+tk
 
 # Graphics and plotting
 libudunits2-dev
@@ -17,6 +21,7 @@ libxtst6
 
 # TeX for PDF generation
 texlive-latex-extra
+texlive-luatex
 texlive-pictures
 poppler-utils
 ghostscript

@@ -15,7 +15,7 @@ This repository provides a pre-configured environment with all necessary package
 [![Binder](https://binderhub.app.rug.nl/badge_logo.svg)](https://binderhub.app.rug.nl/v2/gh/UG-Team-Data-Science/datavis-rep/HEAD)
 
 Click the badge above to launch the environment in **MyBinder**. This will:
-- Build the Docker container using `jupyter/datascience-notebook` as the base
+- Build the Docker container using `rocker/binder` as the base
 - Install all Python packages from `requirements.txt`
 - Install all R packages from `install.R`
 - Install Octave and Julia with plotting capabilities
@@ -78,7 +78,7 @@ Then open `http://localhost:8888` in your browser.
 ## 📦 Included Components
 
 ### **Base Image**
-- `jupyter/datascience-notebook:latest` - Provides JupyterLab with Python, R, and Julia pre-installed
+- `rocker/binder:latest` - Binder-compatible image with Jupyter and R toolchain support
 
 ### **Languages & Kernels**
 | Language | Version | Kernel | Status |
@@ -171,7 +171,7 @@ Add package names to `apt.txt`, then rebuild the container image.
 
 | File | Purpose |
 |------|---------|
-| `Dockerfile` | Docker configuration using jupyter/datascience-notebook as base |
+| `Dockerfile` | Docker configuration using rocker/binder as base |
 | `requirements.txt` | Python packages to install |
 | `install.R` | R packages to install |
 | `apt.txt` | System dependencies to install |
@@ -200,4 +200,4 @@ TBA
 
 ## 🙌 Acknowledgments
 
-- Uses `jupyter/datascience-notebook` as the base image
+- Uses `rocker/binder` as the base image

@@ -1,28 +1,31 @@
-# Data Visualization Python Packages
+# Data visualization stack
+numpy
+pandas
+scipy
+matplotlib
 seaborn
 altair
 plotly
 plotnine
-pandas
-scipy
-scikit-learn
+bokeh
+vega_datasets
 wordcloud
 cufflinks
 kaleido
+
+# Utilities commonly used in teaching notebooks
+markdown
+appdirs
 sqlalchemy_utils
 ipywidgets_jsonschema
 ipyfilechooser
-appdirs
-markdown
-
 
 # Jupyter ecosystem
 jupyterlab
 ipykernel
 ipywidgets
 
-# Octave integration (optional)
+# Language interop
+rpy2
 oct2py
-
-# Julia integration (optional)
 juliacall

@@ -3,6 +3,7 @@
     "dockerComposeFile": "docker-compose.yml",
     "service": "datavis-rep",
     "workspaceFolder": "/workspaces/datavis-rep",
+    "remoteUser": "jovyan",
     "shutdownAction": "stopCompose",
     "customizations": {
         "vscode": {
@@ -27,6 +28,5 @@
         }
     },
     "forwardPorts": [8888],
-    "postCreateCommand": "jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='' --NotebookApp.password='' &",
-    "postStartCommand": "echo 'Jupyter Lab is running at http://localhost:8888'"
+    "postStartCommand": "echo 'Codespace ready. Jupyter Lab is provided by the datavis-rep service on port 8888.'"
 }

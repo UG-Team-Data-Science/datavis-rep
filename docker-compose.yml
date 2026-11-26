@@ -12,5 +12,5 @@ services:
     environment:
       - JUPYTER_TOKEN=
       - JUPYTER_PASSWORD=
-    command: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='' --NotebookApp.password=''
+    command: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --ServerApp.token='' --ServerApp.password=''
     restart: unless-stopped

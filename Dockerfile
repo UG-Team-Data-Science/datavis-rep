@@ -1,6 +1,4 @@
-# Use jupyter/datascience-notebook as the base image
-# This provides JupyterLab with Python, R, and basic data science packages
-FROM quay.io/jupyter/datascience-notebook:2026-07-28
+FROM rocker/binder:latest
 
 # Set environment variables
 ENV NB_USER=jovyan
@@ -22,8 +20,8 @@ RUN apt-get update \
 
 # Octave add-on packages are installed through apt.txt to keep Binder builds deterministic.
 
-# Install Julia packages for plotting
-RUN julia -e 'using Pkg; Pkg.add(["Plots", "GR"]); for pkg in ["PlotlyJS", "Makie"]; try; Pkg.add(pkg); catch err; @warn "Skipping optional Julia package" package=pkg exception=err; end; end'
+# Install Julia visualization packages (no AI tooling).
+RUN julia -e 'using Pkg; Pkg.add(["IJulia", "Plots", "GR", "VegaLite"]); for pkg in ["PlotlyJS", "Makie"]; try; Pkg.add(pkg); catch err; @warn "Skipping optional Julia package" package=pkg exception=err; end; end'
 
 # Switch back to jovyan user
 USER ${NB_USER}
@@ -31,8 +29,9 @@ USER ${NB_USER}
 # Copy configuration files
 COPY requirements.txt install.R /tmp/
 
-# Install Python packages
-RUN pip install --no-cache-dir --requirement /tmp/requirements.txt
+# Install Python packages and enable notebook puller extension.
+RUN pip install --no-cache-dir --requirement /tmp/requirements.txt \
+    && jupyter server extension enable --py nbgitpuller --sys-prefix
 
 # Install R packages
 RUN Rscript /tmp/install.R

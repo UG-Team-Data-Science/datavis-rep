@@ -4,35 +4,31 @@ options(
 )
 
 cran_packages <- c(
-
-  # Data visualization packages
-  "ggrepel", "ggthemes", "ggforce", "ggridges", "patchwork",
-  "ggspatial", "ggmap", "maps", "RColorBrewer", "viridis",
-  "ggfortify", "ggstance", "ggfittext", "cowplot",
-  "colorblindr", "ggtextures", "ungeviz",
-
-  # Advanced plotting
-  "plotly", "gganimate", "ggexchange",
+  # Core data/plotting ecosystem
+  "tidyverse", "ggplot2", "plotly", "gganimate", "patchwork",
+  "ggthemes", "ggforce", "ggridges", "ggrepel", "ggfortify",
+  "ggfittext", "ggstance", "ggimage", "cowplot", "gridExtra",
   "treemapify", "hexbin", "plot3D", "misc3d", "rgl",
-  "ggplot2movies", "ggimage", "gridExtra",
+  "maps", "RColorBrewer", "viridis", "scales", "ggplot2movies",
 
-  # Spatial data
-  "sf", "rgeos", "sp", "maptools", "geofacet",
-  "rnaturalearth", "rworldmap", "statebins",
+  # Spatial visualization stack
+  "sf", "sp", "rgeos", "maptools", "geofacet",
+  "rnaturalearth", "rworldmap", "statebins", "ggspatial", "ggmap",
 
-  # Statistical visualization
-  "MASS", "e1071", "caret", "GGally", "vcd",
-  "FactoMineR",
+  # Statistical and multivariate visualization
+  "MASS", "e1071", "caret", "GGally", "vcd", "FactoMineR",
 
-  # Time-series analysis and visualization
+  # Time-series visualization
   "timeSeries", "zoo", "xts", "forecast", "tsibble",
   "fable", "fabletools", "timetk",
 
-  # Utilities
-  "knitr",  "yaml", "jsonlite",
-  "httr", "curl", "xml2", "rvest", "haven",
-  "foreign", "data.table", "pillar",
-  "hms", "stringi", "glue", "cli", "crayon"
+  # Notebook/reporting and web visualization helpers
+  "IRkernel", "knitr", "rmarkdown", "htmlwidgets", "r2d3",
+  "yaml", "jsonlite", "httr", "curl", "xml2", "rvest",
+
+  # Data import and utilities
+  "haven", "foreign", "data.table", "pillar", "hms",
+  "stringi", "glue", "cli", "crayon"
 )
 
 install_one <- function(pkg) {
