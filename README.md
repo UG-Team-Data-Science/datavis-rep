@@ -54,6 +54,21 @@ docker run -p 8888:8888 -v $(pwd):/home/jovyan/work datavis-rep
 
 # Or use docker-compose
 docker-compose up -d
+
+# remote server
+
+docker run \
+  --name jupyter \
+  -p 8888:8888 \
+  --user root \
+  -e NB_UID=1007 \
+  -e NB_GID=1001 \
+  -e CHOWN_HOME=yes \
+  -e CHOWN_HOME_OPTS="-R" \
+  -v "$(pwd):/home/jovyan/work" \
+  datavis-rep:latest
+
+
 ```
 
 Then open `http://localhost:8888` in your browser.
