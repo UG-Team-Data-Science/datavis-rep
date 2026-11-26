@@ -60,8 +60,12 @@ RUN INSTALL_GITHUB_PACKAGES=1 Rscript /tmp/install.R
 # Ensure bookdown/knitr stack is present even if optional packages in install.R fail.
 RUN Rscript -e 'options(repos = c(CRAN = "https://cloud.r-project.org")); install.packages(c("knitr", "rmarkdown", "bookdown", "xfun"), dependencies = TRUE)'
 
-# Clean up
+# Bundle repository teaching material in the image workspace.
 USER root
+COPY work/ /home/${NB_USER}/work/
+RUN chown -R ${NB_USER}:users /home/${NB_USER}/work
+
+# Clean up
 RUN rm -f /tmp/requirements.txt /tmp/install.R /tmp/apt.txt
 USER ${NB_USER}
 

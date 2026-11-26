@@ -24,6 +24,7 @@ ipyfilechooser
 jupyterlab
 ipykernel
 ipywidgets
+nbgitpuller
 
 # Language interop
 rpy2

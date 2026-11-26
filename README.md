@@ -6,13 +6,15 @@ This repository provides a pre-configured environment with all necessary package
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### **Option 1: Launch in Binder (MyBinder)**
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UG-Team-Data-Science/datavis-rep/HEAD)
 
-[![Binder](https://binderhub.app.rug.nl/badge_logo.svg)](https://binderhub.app.rug.nl/v2/gh/UG-Team-Data-Science/datavis-rep/HEAD)
+[![Launch on RUG BinderHub](https://img.shields.io/badge/Launch-RUG%20BinderHub-1E7A3E?logo=jupyter&logoColor=white)](https://binderhub.app.rug.nl/v2/gh/UG-Team-Data-Science/datavis-rep/HEAD)
+
+[![Launch MyBinder + datavizclaus](https://img.shields.io/badge/Launch-MyBinder%20%2B%20datavizclaus-8A2BE2?logo=jupyter&logoColor=white)](https://mybinder.org/v2/gh/UG-Team-Data-Science/datavis-rep/HEAD?urlpath=git-pull%3Frepo%3Dhttps://github.com/Venustiano/datavizclaus%26urlpath%3Dlab/tree/datavizclaus)
 
 Click the badge above to launch the environment in **MyBinder**. This will:
 - Build the Docker container using `rocker/binder` as the base
@@ -25,7 +27,28 @@ Once launched, you'll have access to:
 - All visualization libraries pre-installed
 - A clean workspace to add your own datasets and code
 
+To launch Binder and pull `Venustiano/datavizclaus` into the session with `nbgitpuller`, use the
+"Binder + datavizclaus" badge above.
+
+#### Reproduce datavizclaus chapters in Binder (RStudio + Knit)
+
+1. Click the "Binder + datavizclaus" badge and wait for the session to start.
+2. In JupyterLab, confirm the `datavizclaus` folder exists in your home/workspace.
+3. Open RStudio by changing the URL from `/lab` to `/rstudio` in the same Binder session.
+4. In RStudio, open the `datavizclaus` project folder and then open the chapter `.Rmd` file you want.
+5. Click **Knit** or **Render** in the RStudio editor to render that chapter.
+
+If you prefer rendering from the R console, run:
+
+```r
+rmarkdown::render("path/to/chapter.Rmd")
+```
+
+Rendered outputs are written next to the source `.Rmd` unless the chapter sets a different output path.
+
 ### **Option 2: GitHub Codespaces**
+
+> ⚠️ Codespaces setup is not ready yet.
 
 1. Open this repository in GitHub
 2. Click the **Code** button
