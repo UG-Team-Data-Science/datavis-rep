@@ -3,6 +3,9 @@
 # General build dependencies
 build-essential
 cmake
+ca-certificates
+curl
+xz-utils
 libssl-dev
 libprotobuf-dev
 protobuf-compiler

@@ -86,7 +86,7 @@ Then open `http://localhost:8888` in your browser.
 | Python | 3.x | ipykernel | ✅ |
 | R | 4.x | IRkernel | ✅ |
 | Octave | Latest | octave-kernel | ✅ |
-| Julia | From base image | IJulia | ✅ |
+| Julia | Pinned in Docker image | IJulia / juliacall | ✅ |
 
 ### **Python Packages**
 Core visualization and data science libraries:
